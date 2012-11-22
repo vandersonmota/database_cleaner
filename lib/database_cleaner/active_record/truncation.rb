@@ -189,7 +189,7 @@ module ActiveRecord
       include ::DatabaseCleaner::ActiveRecord::MysqlAdapter
     end
 
-    unless defined?(MysqlAdapter) do
+    unless defined?(MysqlAdapter)
       class Mysql2Adapter < MYSQL2_ADAPTER_PARENT
         include ::DatabaseCleaner::ActiveRecord::MysqlAdapter
       end
