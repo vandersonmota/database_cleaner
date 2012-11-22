@@ -189,8 +189,10 @@ module ActiveRecord
       include ::DatabaseCleaner::ActiveRecord::MysqlAdapter
     end
 
-    class Mysql2Adapter < MYSQL2_ADAPTER_PARENT
-      include ::DatabaseCleaner::ActiveRecord::MysqlAdapter
+    unless defined?(MysqlAdapter) do
+      class Mysql2Adapter < MYSQL2_ADAPTER_PARENT
+        include ::DatabaseCleaner::ActiveRecord::MysqlAdapter
+      end
     end
 
     class IBM_DBAdapter < AbstractAdapter
